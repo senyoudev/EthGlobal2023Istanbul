@@ -24,7 +24,7 @@ const generateProof = async () => {
 	
 	console.log("start")
 	// params start
-	const vote  =  0;
+	const vote  =  1;
 
 	// params end
 	const { proof, publicSignals } = await snarkjs.groth16.fullProve(
@@ -56,6 +56,7 @@ const verifyProof = async () => {
 	console.log("now verifying");
 	const expectedOutput = await expectedResult(0,proposalId,address);
 	const r = await  _verify(proof,[expectedOutput]);
+	console.log(`Result ${r}`)
 }
 
 
