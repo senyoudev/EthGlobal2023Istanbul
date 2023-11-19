@@ -19,8 +19,7 @@ import { ThemeSwitch } from "@/components/theme-switch";
 import {
 	GithubIcon,
 } from "@/components/icons";
-
-import { Logo } from "@/components/icons";
+import Image from "next/image";
 
 export const Navbar = () => {
 	
@@ -30,10 +29,10 @@ export const Navbar = () => {
 			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
 					<NextLink className="flex justify-start items-center gap-1" href="/">
-						<p className="font-bold text-inherit">Found Ease</p>
+						<Image src="/assets/logo.png" width={40} height={40} alt="Impact fund"/>
 					</NextLink>
 				</NavbarBrand>
-				<ul className="hidden lg:flex gap-4 justify-start ml-2">
+				<ul className="flex gap-4 justify-end ml-2">
 					{siteConfig.navItems.map((item) => (
 						<NavbarItem key={item.href}>
 							<NextLink
