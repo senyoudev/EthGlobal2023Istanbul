@@ -2,6 +2,7 @@ import express from "express"
 import * as snarkjs from "snarkjs"
 import { customPublic } from "./keys";
 import { encryptData } from "./generator";
+import { convertCallData } from "./utils";
 
 interface  ReqBody {
 	address : string;
@@ -36,7 +37,13 @@ app.post("/proof",async (req,res) => {
 
 	console.log("returning proof")
 	const encrypted =  encryptData(String(proposalId),customPublic);
-	return res.json({failed : false,proof,key:encrypted})
+	const cd = convertCallData(await snarkjs.groth16.exportSolidityCallData(proof, publicSignals));
+	return res.json({failed : false,proof : {
+		a : cd.a,
+		b : cd.b,
+		c : cd.c,
+		input : cd.input
+	},key:encrypted})
 	}catch (e) {
 		console.log(e)
 		return res.json({failed : true})
