@@ -7,11 +7,13 @@ contract Dao {
     mapping(address => Member) public members;
     ProposalHandler public proposalHandler;
     uint public platformFeePercentage = 10;
-    uint public point_price = 1;
+    uint public point_price = 2;
+    uint public point_price_sell = 1;
 
     mapping(uint => mapping(address => uint)) public winnerPoints; 
 
     event Deposit(address indexed member, uint amount);
+    event withdraw(address indexed member, uint amount);
 
 
     struct Member {
@@ -30,6 +32,8 @@ contract Dao {
         
         members[msg.sender].deposit += _amount;
         members[msg.sender].points = calculatePoints(members[msg.sender].deposit);
+        uint winnerReward = members[msg.sender].points * point_price_sell;
+        members[msg.sender].HowMuchShouldWin += winnerReward;
 
         emit Deposit(msg.sender, _amount);
     }
@@ -58,4 +62,11 @@ contract Dao {
             members[winners[i]].HowMuchShouldWin += winnerReward;
         }
     }
+
+    function withdrawFunds() external {
+        uint amount = members[msg.sender].HowMuchShouldWin;
+        members[msg.sender].HowMuchShouldWin = 0;
+        payable(msg.sender).transfer(amount);
+    }
+
 }
