@@ -8,9 +8,6 @@ template Verifier() {
   signal input address;
   signal output hash;
 
-
-  
- 
   component hasher = MiMCSponge(3, 220, 1);
   hasher.ins[0] <== vote;
   hasher.ins[1] <== proposalId;
