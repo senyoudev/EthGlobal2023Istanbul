@@ -18,4 +18,6 @@ export interface Proposal{
   status: Status;
   totaleVotes?: number;
   votesFor?: number;
+  goal: number;
+  amountRaised?: number;
 }

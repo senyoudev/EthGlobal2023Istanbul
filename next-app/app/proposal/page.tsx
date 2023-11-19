@@ -20,7 +20,9 @@ const  getProposals = async() => {
       startTime: "2023-03-15T10:30:00",
       status: "Running",
       totaleVotes: 15,
-      votesFor: 8
+      votesFor: 8,
+      goal: 1000,
+      amountRaised: 590
     },
     {
       id: "ghi789",
@@ -38,7 +40,9 @@ const  getProposals = async() => {
       startTime: "2023-05-30T11:45:00",
       status: "Finished",
       totaleVotes: 18,
-      votesFor: 10
+      votesFor: 10,
+      goal: 2000,
+      amountRaised: 1800
     }
   ] as Proposal[];
 }
