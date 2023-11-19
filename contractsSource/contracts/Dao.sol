@@ -9,13 +9,16 @@ contract Dao {
     uint public platformFeePercentage = 10;
     uint public point_price = 1;
 
+    mapping(uint => mapping(address => uint)) public winnerPoints; 
+
     event Deposit(address indexed member, uint amount);
 
 
     struct Member {
         uint deposit;   
         uint points; 
-        mapping(uint => bool) hasVoted; 
+        uint HowMuchShouldWin;
+        mapping(uint => bool) hasWin; 
     }
     constructor(ProposalHandler _proposalHandler) {
         proposalHandler = _proposalHandler;
@@ -25,7 +28,6 @@ contract Dao {
         require(_amount > 0, "Deposit amount must be greater than 0");
         require(msg.value == _amount, "Incorrect deposit amount");
         
-        // Update member's deposit and points
         members[msg.sender].deposit += _amount;
         members[msg.sender].points = calculatePoints(members[msg.sender].deposit);
 
@@ -34,5 +36,26 @@ contract Dao {
 
     function calculatePoints(uint _deposit) internal view returns(uint) {
         return _deposit * point_price;
+    }
+
+     function distributeRewards(uint _proposalId) internal {
+        //should be implemented in proposal handler
+        uint totalReward = proposalHandler.getDonationAmount(_proposalId);
+        uint platformFee = totalReward * platformFeePercentage / 100;
+
+
+        uint[] memory winners = proposalHandler.getWinners(_proposalId);
+        uint allWinnersPoints;
+
+        for(uint i = 0; i < winners.length; i++) {
+            allWinnersPoints += winnerPoints[_proposalId][winners[i]];   
+        }
+        if(allWinnersPoints == 0) {
+             allWinnersPoints = 1;
+         }
+        for (uint i = 0; i < winners.length; i++) {
+            uint winnerReward = (totalReward * winnerPoints[_proposalId][winners[i]]) / allWinnersPoints;
+            members[winners[i]].HowMuchShouldWin += winnerReward;
+        }
     }
 }
