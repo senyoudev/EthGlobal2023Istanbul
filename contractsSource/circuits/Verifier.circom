@@ -1,26 +1,23 @@
 pragma circom 2.1.6;
 
-include "MerkleTreeChecker.circom";
+include "../node_modules/circomlib/circuits/mimcsponge.circom";
 
-template Verifier(levels) {
+template Verifier() {
   signal input vote;
-  signal input commitment;
-  signal input pathElements[levels];
-  signal input pathIndices[levels];
-  signal output voteDecision;
-  signal output root;
+  signal input proposalId;
+  signal input address;
+  signal output hash;
+
+
+  
  
-  component merkleTreeChecker = MerkleTreeChecker(levels);
+  component hasher = MiMCSponge(3, 220, 1);
+  hasher.ins[0] <== vote;
+  hasher.ins[1] <== proposalId;
+  hasher.ins[2] <== address;
+  hasher.k <== 0;
 
-
-    merkleTreeChecker.leaf <== commitment;
-    for (var i = 0; i < levels; i++) {
-        merkleTreeChecker.pathElements[i] <== pathElements[i];
-        merkleTreeChecker.pathIndices[i] <== pathIndices[i];
-    }
-
-    voteDecision <== vote;
-    root <== merkleTreeChecker.root;
+  hash <==  hasher.outs[0];
 }
 
-component main = Verifier(70);
+component main = Verifier();
