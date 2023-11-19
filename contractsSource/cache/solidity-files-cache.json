@@ -36,42 +36,6 @@
         "Lock"
       ]
     },
-    "/Users/mac/Documents/hackathon/tests/hardhatStuff/contracts/Verifier.sol": {
-      "lastModificationDate": 1700278068396,
-      "contentHash": "3fbe961fd41df0b4d5d38ba908272876",
-      "sourceName": "contracts/Verifier.sol",
-      "solcConfig": {
-        "version": "0.8.18",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "0.8.18"
-      ],
-      "artifacts": [
-        "Pairing",
-        "Verifier"
-      ]
-    },
     "/Users/mac/Documents/hackathon/tests/hardhatStuff/contracts/ZKTreeVote.sol": {
       "lastModificationDate": 1700276893763,
       "contentHash": "fc3805c0889e7abda2c7d31b6d5d4ac3",
@@ -218,6 +182,111 @@
       ],
       "artifacts": [
         "console"
+      ]
+    },
+    "/Users/mac/Documents/ethglobal/EthGlobal2023Istanbul/contractsSource/contracts/Dao.sol": {
+      "lastModificationDate": 1700348462969,
+      "contentHash": "945975c3bf900092a2e04afe9ecd4857",
+      "sourceName": "contracts/Dao.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.18"
+      ],
+      "artifacts": [
+        "Dao"
+      ]
+    },
+    "/Users/mac/Documents/ethglobal/EthGlobal2023Istanbul/contractsSource/contracts/Lock.sol": {
+      "lastModificationDate": 1700348462968,
+      "contentHash": "ae66265769cc28ebdaa34881df95bc5e",
+      "sourceName": "contracts/Lock.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.9"
+      ],
+      "artifacts": [
+        "Lock"
+      ]
+    },
+    "/Users/mac/Documents/ethglobal/EthGlobal2023Istanbul/contractsSource/contracts/ProposalHandler.sol": {
+      "lastModificationDate": 1700348462967,
+      "contentHash": "93febae5027ccbe21d80be87a1254307",
+      "sourceName": "contracts/ProposalHandler.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.18"
+      ],
+      "artifacts": [
+        "ProposalHandler"
       ]
     }
   }

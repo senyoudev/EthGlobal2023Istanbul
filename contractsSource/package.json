@@ -8,6 +8,10 @@
   "dependencies": {
     "@openzeppelin/contracts": "^5.0.0",
     "circomlibjs": "^0.1.7",
+    "ethers": "^6.8.1",
+    "fp-ts": "^2.16.1",
+    "keccak256": "^1.0.6",
+    "snarkjs": "^0.7.2",
     "zk-merkle-tree": "^1.0.4"
   }
 }
