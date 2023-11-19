@@ -1,0 +1,20 @@
+{
+  "name": "keeper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node ./src/index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/circomlibjs": "^0.1.6",
+    "@types/snarkjs": "^0.7.7",
+    "circomlibjs": "^0.1.7",
+    "ethers": "^6.8.1",
+    "snarkjs": "^0.7.2",
+    "ts-node": "^10.9.1"
+  }
+}
