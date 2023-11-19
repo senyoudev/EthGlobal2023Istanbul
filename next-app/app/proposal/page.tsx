@@ -42,7 +42,7 @@ const  getProposals = async() => {
   ] as Proposal[];
 }
 
-const Proposal: React.FC = async () => {
+const Proposal = async () => {
   const proposals = await getProposals()
 
   return (
