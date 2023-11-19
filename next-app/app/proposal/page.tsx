@@ -1,4 +1,5 @@
 import ProposalCard from "@/components/ProposalCard"
+import ProposalModalForm from "@/components/ProposalModalForm";
 import { Proposal } from "@/types"
 
 const  getProposals = async() => {
@@ -19,7 +20,9 @@ const  getProposals = async() => {
       startTime: "2023-03-15T10:30:00",
       status: "Running",
       totaleVotes: 15,
-      votesFor: 8
+      votesFor: 8,
+      goal: 1000,
+      amountRaised: 590
     },
     {
       id: "ghi789",
@@ -37,7 +40,9 @@ const  getProposals = async() => {
       startTime: "2023-05-30T11:45:00",
       status: "Finished",
       totaleVotes: 18,
-      votesFor: 10
+      votesFor: 10,
+      goal: 2000,
+      amountRaised: 1800
     }
   ] as Proposal[];
 }
@@ -47,7 +52,10 @@ const Proposal = async () => {
 
   return (
     <div className="container">
-      <h1 className="text-4xl font-bold">Proposals</h1>
+      <div className="flex flex-row justify-between">
+        <h1 className="text-4xl font-bold">Proposals</h1>
+        <ProposalModalForm />
+      </div>
       <div className="flex flex-col flex-wrap items-center justify-center gap-4 py-8 md:py-10 md:flex-row ">
         {proposals.map(proposal => (
           <ProposalCard key={proposal.id} proposal={proposal} />
