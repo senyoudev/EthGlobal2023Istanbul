@@ -5,14 +5,20 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node ./src/index.ts"
+    "start": "ts-node ./src/index.ts",
+    "gen": "ts-node ./src/generator.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@types/circomlibjs": "^0.1.6",
+    "@types/crypto-js": "^4.2.1",
+    "@types/cryptojs": "^3.1.33",
     "@types/snarkjs": "^0.7.7",
     "circomlibjs": "^0.1.7",
+    "crypto-js": "^4.2.0",
+    "cryptojs": "^2.5.3",
+    "encrypt-rsa": "^2.1.5",
     "ethers": "^6.8.1",
     "snarkjs": "^0.7.2",
     "ts-node": "^10.9.1"
