@@ -60,7 +60,7 @@ const ProposalCard = ({ proposal }: { proposal: Proposal }) => {
             </div>
           </div>
         ) : (
-          <div className="flex flex-row gap-3">
+          <div className="flex flex-row gap-3 text-white">
             <Button color={"success"}  >
               vote for
             </Button>
