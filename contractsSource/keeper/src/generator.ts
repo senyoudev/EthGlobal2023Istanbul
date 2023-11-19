@@ -15,7 +15,7 @@ const generateKeyPair  = () => {
 }
 
 
-const encryptData = (data : string,key : string) => {
+export const encryptData = (data : string,key : string) => {
 	const encryptRsa = new EncryptRsa();
 	const encryptedText = encryptRsa.encryptStringWithRsaPublicKey({ 
 		text: data,   
@@ -24,7 +24,7 @@ const encryptData = (data : string,key : string) => {
 	return encryptedText;
 }
 
-const decryptData  = (data : string,key : string) => {
+export const decryptData  = (data : string,key : string) => {
 	const encryptRsa = new EncryptRsa();
 	const decryptedText = encryptRsa.decryptStringWithRsaPrivateKey({ 
 		text: data, 
@@ -36,14 +36,14 @@ const decryptData  = (data : string,key : string) => {
 }
 
 const main = () => {
-	
+	const encryptRsa = new EncryptRsa();
 	//const  {privateKey,publicKey} = generateKeyPair();
-	/* const { privateKey, publicKey } = encryptRsa.createPrivateAndPublicKeys();
+	const { privateKey, publicKey } = encryptRsa.createPrivateAndPublicKeys(2046);
 	console.log(privateKey)
-	console.log(publicKey) */
+	console.log(publicKey)
 	const message = "hello world"
 	
 	  
 }
 
-//main()
+main()

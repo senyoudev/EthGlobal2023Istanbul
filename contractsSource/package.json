@@ -8,7 +8,7 @@
     "compile": "circom ./circuits/Verifier.circom --r1cs --wasm --sym --c -o ./build",
     "genkey": "snarkjs groth16 setup ./build/Verifier.r1cs ./keys/pot20_down.ptau ./keys/myCustomKey.zkey",
     "exportVerification": "snarkjs zkey export verificationkey ./keys/myCustomKey.zkey ./keys/myCustomVerificationKey.json",
-    "exportVerifier": "snarkjs zkey export solidityverifier ./keys/myCustomKey.zkey verifier.sol"
+    "exportVerifier": "snarkjs zkey export solidityverifier ./keys/myCustomKey.zkey ./buildContracts/verifier.sol"
   },
   "type": "module",
   "dependencies": {
