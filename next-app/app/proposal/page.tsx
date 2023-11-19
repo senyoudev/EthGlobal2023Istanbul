@@ -1,8 +1,14 @@
 import ProposalCard from "@/components/ProposalCard"
 import ProposalModalForm from "@/components/ProposalModalForm";
 import { Proposal } from "@/types"
+import { readContract } from "viem/_types/actions/public/readContract";
 
 const  getProposals = async() => {
+    const { data, isError, isLoading } = useContractRead({
+      address: '0xecb504d39723b0be0e3a9aa33d646642d1051ee1',
+      abi: wagmigotchiABI,
+      functionName: 'getProposal',
+    });
   return [
     {
       id: "abc123",
