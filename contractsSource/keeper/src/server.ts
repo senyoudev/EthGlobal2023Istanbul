@@ -3,6 +3,7 @@ import * as snarkjs from "snarkjs"
 import { customPublic } from "./keys";
 import { encryptData } from "./generator";
 import { convertCallData } from "./utils";
+import { expectedResult } from ".";
 
 interface  ReqBody {
 	address : string;
@@ -35,6 +36,9 @@ app.post("/proof",async (req,res) => {
 		WasmPath,
 		ZKeyPath);	
 
+	const expResult = await expectedResult(vote,proposalId,address);
+	console.log(`The expected Result is : ${expResult}`)
+
 	console.log("returning proof")
 	const encrypted =  encryptData(String(proposalId),customPublic);
 	const cd = convertCallData(await snarkjs.groth16.exportSolidityCallData(proof, publicSignals));
@@ -42,7 +46,8 @@ app.post("/proof",async (req,res) => {
 		a : cd.a,
 		b : cd.b,
 		c : cd.c,
-		input : cd.input
+		input : cd.input,
+		proof
 	},key:encrypted})
 	}catch (e) {
 		console.log(e)

@@ -1,10 +1,15 @@
 import { BigNumberish, Contract } from "ethers";
 
 export function convertCallData(calldata : any) {
+    console.log(calldata);
+    console.log(calldata
+        .replace(/["[\]\s]/g, "")
+        .split(","))
     const argv = calldata
         .replace(/["[\]\s]/g, "")
         .split(",")
         .map((x:any) => BigInt(x).toString());
+    console.log(argv)
 
     const a = [argv[0], argv[1]] as [any, any];
     const b = [

@@ -12,7 +12,7 @@ const VerificationPath = "../keys/myCustomVerificationKey.json"
 
 
 
-const expectedResult = async (vote : number,proposalId:number,address: string)  =>  {
+export const expectedResult = async (vote : number,proposalId:number,address: string)  =>  {
 	const mimc = await buildMimcSponge();
 	const hash = mimc.F.toString(mimc.multiHash([vote, proposalId,address],undefined,1));
 	return hash;
